@@ -1,23 +1,23 @@
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0rem;
+    padding: 0rem;
     box-sizing: border-box;
 }
 
 .modal-wrapper {
     position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    top: 0rem;
+    bottom: 0rem;
+    left: 0rem;
+    right: 0rem;
 }
 
 .modal-backdrop {
     position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    top: 0rem;
+    bottom: 0rem;
+    left: 0rem;
+    right: 0rem;
     z-index: 100;
     background-color: rgba(0,0,0,0.3);
 }
@@ -31,10 +31,10 @@
     width: 60%;
     overflow-y: auto;
     background-color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.35);
+    box-shadow: 0rem 0rem 0.5rem rgba(0,0,0,0.35);
     z-index: 101;
-    padding: 40px;
-    ;
+    padding: 2rem;
+    
 }
 .modal-inside {
     display: flex;
@@ -44,12 +44,12 @@
 .profile-wrapper {
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;;
+    margin-bottom: 1rem;;
 }
 .img-profile {
-    padding: 1px;;
-    height: 45px;
-    width: 45px;
+    padding: 0.05rem;;
+    height: 2.25rem;
+    width: 2.25rem;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
@@ -60,19 +60,19 @@
 }
 
 .frist-and-last-name {
-    margin-left: 10px;
-    font-size: 16px;
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
     font-weight: 700;
 }
 .username {
-    margin-left: 10px;
-    font-size: 14px;
+    margin-left: 0.5rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: rgb(0,0,0,0.3);
 }
 
 .img-in-modal {
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
     max-height: 80%;
     max-width: 80%;
 
@@ -82,7 +82,7 @@
     flex-direction: row;
 }
 .geo-text {
-    margin-left: 10px;
-    font-size: 13px;
+    margin-left: 0.5rem;
+    font-size: 0.65rem;
     font-weight: 500;
 }

@@ -8,19 +8,19 @@
 }
 
 .title {
-    font-size: 10px;
+    font-size: 0.5rem;
     color: black;
 }
 
 .one-result-container {
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin: 0.5rem;
     flex: 1;
 }
 .logo-unsplash-h4 {
     color: black;
-    margin: 10px;
+    margin: 0.5rem;
 }
 .show-images-container {
     display: flex;

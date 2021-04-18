@@ -1,13 +1,7 @@
 html {
     font-size: 20px;
 }
-/* .App {
-    display: flex;
-    flex-direction: column;
-}
-.h1 {
-    color: black;
-} */
+
 @media only screen and (max-width: 240px) {
     html{
         font-size: 3px;

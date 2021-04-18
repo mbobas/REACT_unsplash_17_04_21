@@ -1,14 +1,14 @@
 .field-container {
-    border-radius: 20px;
+    border-radius: 1rem;
     background-color: white;
 }
 
 .button {
-    font-size: 20px;
+    font-size: 1rem;
     color: rgb(0,0,0,0.7);
     font-weight: 700;
-    margin-left: 20px;
-    margin-top: 13px;
+    margin-left: 1rem;
+    margin-top: 0.65rem;
 } 
 
 .button:hover {

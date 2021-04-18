@@ -41,8 +41,7 @@ export default function Home() {
          
     return (
         <>
-            <div className="top-of-appH">
-
+            <div className="top-of-appH .m">
                 <Link to="/"><div className="home-linkH">Home</div></Link>
                 <a className="about-linkH" target='_blank' href="https://github.com/mbobas" rel="noreferrer">About</a>
 
