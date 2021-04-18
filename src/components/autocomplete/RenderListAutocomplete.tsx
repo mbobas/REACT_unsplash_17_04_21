@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import "./RenderListAutocomplete.css";
+import "components/autocomplete/RenderListAutocomplete";
 
 interface RenderListAutocompleteProps {
     resultCollection: any,
