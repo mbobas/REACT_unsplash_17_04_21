@@ -1,13 +1,11 @@
 import React, {useState } from 'react';
 import { toJson } from 'unsplash-js';
 import "pages/home/Home.css";
-import RenderListAutocomplete from 'components/autocomplete/RenderListAutocomplete';
 import { Link, Redirect} from 'react-router-dom';
 import {IconContext} from "react-icons";
 import {FaSearch} from "react-icons/fa"
 import {unsplash} from 'components/api//unsplashAPI'
-import { autoCompleete } from 'components/autocomplete/autocompleeteFunctions';
-import {ShowAutoCompleete} from 'components/autocomplete/ShowAutoCompleete';
+import {ShowAutoCompleete, autoCompleete} from 'components/autocomplete/ShowAutoCompleete';
 
 
 export default function Home() { 
@@ -43,22 +41,6 @@ export default function Home() {
     const toggleAutoCompleeteFields = (toggleStatus: any) => {
             settoggleAutocomplete(toggleStatus);
     }
-
-    // function ShowAutoCompleete(props: any) {
-    //     if (toggleAutocomplete) {  
-    //         return (
-    //                 <RenderListAutocomplete 
-    //                 resultCollection={props.resultCollection} 
-    //                 toggleAutoCompleeteFields={toggleAutoCompleeteFields}
-    //                 updateSearchPhoto={updateSearchPhoto}
-    //             />
-    //             )
-    //         } else if (toggleAutocomplete == false) {
-    //             return (<span></span>);
-    //         } else {
-    //             return (<span>No matches! 👎</span>)
-    //         }
-    //     }
 
 
     if (redirectTo === true) {
@@ -106,6 +88,7 @@ export default function Home() {
                             toggleAutoCompleeteFields={toggleAutoCompleeteFields}
                             toggleAutocomplete={toggleAutocomplete}
                             updateSearchPhoto={updateSearchPhoto}
+                            
 
                             />
                     </div>

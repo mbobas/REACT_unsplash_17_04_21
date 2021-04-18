@@ -1,7 +1,4 @@
-import React from "react";
-import RenderListAutocomplete from "./RenderListAutocomplete";
 
-   
    export const autoCompleete = (event: any, settoggleAutocomplete: any, toggleAutocomplete: any  ) => {
         if (event.target.value.length === 3){
             settoggleAutocomplete(true);

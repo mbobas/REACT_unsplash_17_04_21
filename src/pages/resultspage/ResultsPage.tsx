@@ -9,8 +9,7 @@ import '../../components/modal/Modal.css';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { FaSearch } from 'react-icons/fa';
-import { autoCompleete } from 'components/autocomplete/autocompleeteFunctions';
-
+import {ShowAutoCompleete, autoCompleete} from 'components/autocomplete/ShowAutoCompleete';
 
 export default function ResultsPage() { 
     const unsplash = new Unsplash({ accessKey: env.API_KEY });
@@ -56,18 +55,6 @@ export default function ResultsPage() {
             settoggleAutocomplete(false);
           }
     }
-    // const autoCompleete = (event: any) => {
-    //     if (event.target.value.length === 3){
-    //         settoggleAutocomplete(true);
-    //         console.log(toggleAutocomplete);
-    //     }
-    //     if (event.target.value.length > 3) {
-    //     }
-    //     if (event.target.value.length < 3){
-    //         settoggleAutocomplete(false);
-    //         console.log(toggleAutocomplete);
-    //     }
-    // }
 
     const updateSearchPhoto = (photo: any) => {
         setPhoto(photo);
@@ -85,21 +72,6 @@ export default function ResultsPage() {
             console.log("Toggle" + toggleStatus);
     }
 
-    function ShowAutoCompleete() {
-        if (toggleAutocomplete) {  
-            return (
-                    <RenderListAutocomplete 
-                    resultCollection={resultCollection} 
-                    toggleAutoCompleeteFields={toggleAutoCompleeteFields}
-                    updateSearchPhoto={updateSearchPhoto}
-                />
-                )
-        } else if (toggleAutocomplete == false) {
-            return (<span></span>);
-        } else {
-            return (<span>No matches! 👎</span>)
-        }
-    }
 
     useEffect(() => {
         setPhoto(recivedPhotoShort);
@@ -141,7 +113,14 @@ export default function ResultsPage() {
                         />
                     </div>
                     <div className="toogleAutocompleteR">
-                        <ShowAutoCompleete />     
+                        <ShowAutoCompleete 
+                            resultCollection={resultCollection}
+                            toggleAutoCompleeteFields={toggleAutoCompleeteFields}
+                            toggleAutocomplete={toggleAutocomplete}
+                            updateSearchPhoto={updateSearchPhoto}
+                            
+
+                            />    
                     </div>
                     <span className="text-to-findeR">{photo}</span>
                 </div>  
