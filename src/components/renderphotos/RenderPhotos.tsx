@@ -33,7 +33,6 @@ const RenderPhotos = (props: any) => {
         setUpdateDate(update_date)
         setLocation_u(location_u);
         setPortfolioImage(portfolio_image);
-        console.log(portfolio_image);
         setUserName(username);    
     }
 
@@ -41,7 +40,6 @@ const RenderPhotos = (props: any) => {
         closeModal();
         }, []);
    
-
     return (
             <div className="show-images-container">
                 {props.resultPhotos.map((item: any) => (
@@ -75,9 +73,7 @@ const RenderPhotos = (props: any) => {
                         location_u={location_u}
                         portfolio_image={portfolio_image}
                         username={username}
-
                         ref={modalRef}>
-                            
                         </Modal>   
                 </div>
             </div>

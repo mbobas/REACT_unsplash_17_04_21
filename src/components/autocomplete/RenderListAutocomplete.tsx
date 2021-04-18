@@ -4,13 +4,9 @@ import 'components/autocomplete/RenderListAutocomplete.css';
 
 interface RenderListAutocompleteProps {
     resultCollection: any,
-    //updatePhotoCollections: any,
-    //handleSearchCollections: any,
-    //settoggleAutocomplete: any,
     toggleAutoCompleeteFields: any,
     updateSearchPhoto: any
 }
-
 
 class RenderListAutocomplete extends Component<RenderListAutocompleteProps> {
     render() {
@@ -26,7 +22,6 @@ class RenderListAutocomplete extends Component<RenderListAutocompleteProps> {
                 {item.title}
             </div></Link>
         ))}
-        
         </div>
     )} else {
         return (<span>No matches! 👎</span>)

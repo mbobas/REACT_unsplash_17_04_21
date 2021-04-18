@@ -9,7 +9,7 @@ import {ShowAutoCompleete, autoCompleete} from 'components/autocomplete/ShowAuto
 
 
 export default function SearchBar() { 
-    const [photo, setPhoto] = useState("sunset");
+    const [photo, setPhoto] = useState("");
     const [resultCollection, setResultCollection] = useState([]);
     const [toggleAutocomplete, settoggleAutocomplete] = useState(false);
     const [redirectTo, setStateRedirect] = useState(false);
@@ -30,10 +30,8 @@ export default function SearchBar() {
 
     const redirect = (event: any) => {
         setStateRedirect(true);
-
     }
     
-
     const updateSearchPhoto = (photo: any) => {
         setPhoto(photo);
     }

@@ -1,7 +1,33 @@
-.App {
+html {
+    font-size: 20px;
+}
+/* .App {
     display: flex;
     flex-direction: column;
 }
 .h1 {
     color: black;
-}
+} */
+@media only screen and (max-width: 240px) {
+    html{
+        font-size: 3px;
+    }
+  }
+
+@media only screen and (max-width: 360px) {
+    html{
+        font-size: 5px;
+    }
+  }
+
+@media only screen and (max-width: 600px) {
+    html{
+        font-size: 10px;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    html{
+        font-size: 12px;
+    }
+  }
