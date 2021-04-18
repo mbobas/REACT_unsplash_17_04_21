@@ -1,16 +1,14 @@
 import React, {useState } from 'react';
-import Unsplash, { toJson } from 'unsplash-js';
-import "./Home.css";
-import RenderListAutocomplete from '../../components/autocomplete/RenderListAutocomplete';
+import { toJson } from 'unsplash-js';
+import "pages/home/Home.css";
+import RenderListAutocomplete from 'components/autocomplete/RenderListAutocomplete';
 import { Link, Redirect} from 'react-router-dom';
-import {IconContext} from "react-icons"
+import {IconContext} from "react-icons";
 import {FaSearch} from "react-icons/fa"
+import {unsplash} from 'components/api//unsplashAPI'
 
 
 export default function Home() { 
-    //unplashs settings
-    const unsplash = new Unsplash({ accessKey: "sDI3L3I2mgA91a4deHN4BevefU63v8_yMhgYmrtHy6k"});
-    //states of 
     const [photo, setPhoto] = useState("sunset");
     const [resultCollection, setResultCollection] = useState([]);
     const [resultPhotos, setResultPhotos] = useState([]);
@@ -18,8 +16,7 @@ export default function Home() {
     const [redirectTo, setStateRedirect] = useState(false);
 
     const handleChange = (event: any ) => {
-        
-        console.log("handleChange: value" + event.target.value);
+        //console.log("handleChange: value" + event.target.value);
         handleSearchCollections(event);
         setPhoto(event.target.value);
     }
@@ -33,6 +30,8 @@ export default function Home() {
     //             setResultPhotos(json.results)
     //         });
 
+
+    
     const handleSearchCollections = (event:any) => {
         unsplash.search.collections(event.target.value, 1, 5)
             .then(toJson)
@@ -40,20 +39,8 @@ export default function Home() {
                 console.log("handleSearchCollections");
                 console.log(json.results);
                 setResultCollection(json.results)
-                
             });
     }
-
-    // }
-    // const handleSearchCollections = (event:any) => {
-    //     unsplash.search.collections(event.target.value, 1, 5)
-    //         .then(toJson)
-    //         .then(json => {
-    //             console.log("handleSearchCollections");
-    //             console.log(json.results);
-    //             setResultCollection(json.results)
-    //         });
-    // }
 
     const redirect = (event: any) => {
         setStateRedirect(true);
