@@ -7,12 +7,12 @@ import {IconContext} from "react-icons";
 import {FaSearch} from "react-icons/fa"
 import {unsplash} from 'components/api//unsplashAPI'
 import { autoCompleete } from 'components/autocomplete/autocompleeteFunctions';
+import {ShowAutoCompleete} from 'components/autocomplete/ShowAutoCompleete';
 
 
 export default function Home() { 
     const [photo, setPhoto] = useState("sunset");
     const [resultCollection, setResultCollection] = useState([]);
-    //const [resultPhotos, setResultPhotos] = useState([]);
     const [toggleAutocomplete, settoggleAutocomplete] = useState(false);
     const [redirectTo, setStateRedirect] = useState(false);
 
@@ -25,7 +25,6 @@ export default function Home() {
         unsplash.search.collections(event.target.value, 1, 5)
             .then(toJson)
             .then(json => {
-                console.log("handleSearchCollections");
                 console.log(json.results);
                 setResultCollection(json.results)
             });
@@ -45,21 +44,21 @@ export default function Home() {
             settoggleAutocomplete(toggleStatus);
     }
 
-    function ShowAutoCompleete(props: any) {
-        if (toggleAutocomplete) {  
-            return (
-                    <RenderListAutocomplete 
-                    resultCollection={props.resultCollection} 
-                    toggleAutoCompleeteFields={toggleAutoCompleeteFields}
-                    updateSearchPhoto={updateSearchPhoto}
-                />
-                )
-            } else if (toggleAutocomplete == false) {
-                return (<span></span>);
-            } else {
-                return (<span>No matches! 👎</span>)
-            }
-        }
+    // function ShowAutoCompleete(props: any) {
+    //     if (toggleAutocomplete) {  
+    //         return (
+    //                 <RenderListAutocomplete 
+    //                 resultCollection={props.resultCollection} 
+    //                 toggleAutoCompleeteFields={toggleAutoCompleeteFields}
+    //                 updateSearchPhoto={updateSearchPhoto}
+    //             />
+    //             )
+    //         } else if (toggleAutocomplete == false) {
+    //             return (<span></span>);
+    //         } else {
+    //             return (<span>No matches! 👎</span>)
+    //         }
+    //     }
 
 
     if (redirectTo === true) {
@@ -102,7 +101,13 @@ export default function Home() {
                         </form>
                     </div>
                     <div className="toogleAutocompleteH">
-                        <ShowAutoCompleete resultCollection={resultCollection}/>
+                        <ShowAutoCompleete 
+                            resultCollection={resultCollection}
+                            toggleAutoCompleeteFields={toggleAutoCompleeteFields}
+                            toggleAutocomplete={toggleAutocomplete}
+                            updateSearchPhoto={updateSearchPhoto}
+
+                            />
                     </div>
                 </div>  
             </div>
