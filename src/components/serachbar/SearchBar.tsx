@@ -8,8 +8,8 @@ import {unsplash} from 'components/api//unsplashAPI'
 import {ShowAutoCompleete, autoCompleete} from 'components/autocomplete/ShowAutoCompleete';
 
 
-export default function Home() { 
-    const [photo, setPhoto] = useState("sunset1");
+export default function SearchBar() { 
+    const [photo, setPhoto] = useState("sunset");
     const [resultCollection, setResultCollection] = useState([]);
     const [toggleAutocomplete, settoggleAutocomplete] = useState(false);
     const [redirectTo, setStateRedirect] = useState(false);
@@ -37,10 +37,6 @@ export default function Home() {
     const updateSearchPhoto = (photo: any) => {
         setPhoto(photo);
     }
-
-    
-
-
     if (redirectTo === true) {
     return <Redirect to={'/:'+photo} />
            
@@ -86,8 +82,6 @@ export default function Home() {
                             settoggleAutocomplete={settoggleAutocomplete}
                             toggleAutocomplete={toggleAutocomplete}
                             updateSearchPhoto={updateSearchPhoto}
-                            
-
                             />
                     </div>
                 </div>  

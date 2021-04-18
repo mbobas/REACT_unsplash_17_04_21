@@ -3,22 +3,14 @@ import RenderListAutocomplete from "./RenderListAutocomplete";
 
 interface ShowAutoCompleeteProps {
     resultCollection: any, 
-    //toggleAutoCompleeteFields: any, 
     settoggleAutocomplete: any,
     toggleAutocomplete: any, 
     updateSearchPhoto: any,
   }
-
-//   const toggleAutoCompleeteFields = (toggleAutocomplete: any) => {
-//     settoggleAutocomplete(toggleAutocomplete);
-// }
-
  
   export const ShowAutoCompleete: React.FC<ShowAutoCompleeteProps> = ({resultCollection, settoggleAutocomplete, toggleAutocomplete, updateSearchPhoto}) => {
     
-    // const toggleAutoCompleeteFields = (toggleAutocomplete: any, settoggleAutocomplete: any) => {
-    //     settoggleAutocomplete(toggleAutocomplete);
-    // }
+  
     const toggleAutoCompleeteFields = (toggleAutocomplete: any) => {
         settoggleAutocomplete(toggleAutocomplete);
     }
@@ -28,7 +20,6 @@ interface ShowAutoCompleeteProps {
                 <RenderListAutocomplete 
                 resultCollection={resultCollection} 
                 toggleAutoCompleeteFields={toggleAutoCompleeteFields}
-                //settoggleAutocomplete={settoggleAutocomplete}
                 updateSearchPhoto={updateSearchPhoto}
             />
             )

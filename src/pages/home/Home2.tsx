@@ -9,7 +9,7 @@ import {ShowAutoCompleete, autoCompleete} from 'components/autocomplete/ShowAuto
 
 
 export default function Home() { 
-    const [photo, setPhoto] = useState("sunset1");
+    const [photo, setPhoto] = useState("3");
     const [resultCollection, setResultCollection] = useState([]);
     const [toggleAutocomplete, settoggleAutocomplete] = useState(false);
     const [redirectTo, setStateRedirect] = useState(false);
@@ -32,19 +32,15 @@ export default function Home() {
         setStateRedirect(true);
 
     }
-    
 
     const updateSearchPhoto = (photo: any) => {
         setPhoto(photo);
     }
 
-    
-
-
     if (redirectTo === true) {
-    return <Redirect to={'/:'+photo} />
-           
-    } else {    
+    return <Redirect to={'/:'+photo} />  
+    } else {  
+         
     return (
         <div className="AppH">
             <div className="top-of-appH">
@@ -53,9 +49,14 @@ export default function Home() {
                 <a className="about-linkH" target='_blank' href="https://github.com/mbobas" rel="noreferrer">About</a>
 
                 <div className="logo-and-searchbar-containerH">
+
+                    {/*//logo unsplash*/}.
                     <span className="logo-unsplash-bigH">Usnplash Photo Search in React</span>
                     <span className="logo-unsplash-smallH">The internet’s source of freely-usable images.
                         <br />Powered by creators everywhere.</span>
+                    {/*//logo unsplash*/}.
+
+
                     <div className="search-bar-with-button-containerH">
                         <Link to={'/:'+photo}>
                             <div className="searchButtonH"
@@ -74,7 +75,6 @@ export default function Home() {
                             value={photo}
                             onChangeCapture={(e) => autoCompleete(e, settoggleAutocomplete, toggleAutocomplete)}
                             onChange={handleChange} 
-                            //onKeyDown={onKeyDown}
                             type="text" name="photo" 
                             placeholder="Search for high resolution photos" 
                         />
@@ -86,8 +86,6 @@ export default function Home() {
                             settoggleAutocomplete={settoggleAutocomplete}
                             toggleAutocomplete={toggleAutocomplete}
                             updateSearchPhoto={updateSearchPhoto}
-                            
-
                             />
                     </div>
                 </div>  

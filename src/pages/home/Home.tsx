@@ -11,7 +11,7 @@ export default function Home() {
     //unplashs settings
     const unsplash = new Unsplash({ accessKey: "sDI3L3I2mgA91a4deHN4BevefU63v8_yMhgYmrtHy6k"});
     //states of 
-    const [photo, setPhoto] = useState("sunset");
+    const [photo, setPhoto] = useState("sunset0");
     const [clientId, setClientId] = useState("sDI3L3I2mgA91a4deHN4BevefU63v8_yMhgYmrtHy6k");
     const [resultCollection, setResultCollection] = useState([]);
     const [resultPhotos, setResultPhotos] = useState([]);
