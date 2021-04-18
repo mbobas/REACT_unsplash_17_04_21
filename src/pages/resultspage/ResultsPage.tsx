@@ -37,7 +37,7 @@ export default function ResultsPage() {
             });
     }
     const handleSearchCollections = (event:any) => {
-        unsplash.search.collections(photo, 1, 5)
+        unsplash.search.collections(event.target.value, 1, 5)
             .then(toJson)
             .then(json => {
                 console.log("handleSearchCollections");
@@ -143,7 +143,7 @@ export default function ResultsPage() {
                     <div className="search-bar-with-button-containerR">
                         <Link to={'/:'+photo}>
                             <div className="searchButtonR"
-                                onClick={handleSearchCollections && handleSearchPhotos}>
+                                onClick={handleSearchCollections}>
                             <IconContext.Provider value={{ style: {fontSize: '30px', color: "rgb(0,0,0,0.6)"}}}>
                                 <FaSearch />
                             </IconContext.Provider>
