@@ -1,8 +1,7 @@
 import React, {useState } from 'react';
 import Unsplash, { toJson } from 'unsplash-js';
-import env from '../../env.json'
-import "./Home.css";
-import RenderListAutocomplete from '../../components/autocomplete/RenderListAutocomplete';
+import "pages/home/Home.css";
+import RenderListAutocomplete from 'components/autocomplete/RenderListAutocomplete';
 import { Link, Redirect} from 'react-router-dom';
 import {IconContext} from "react-icons"
 import {FaSearch} from "react-icons/fa"

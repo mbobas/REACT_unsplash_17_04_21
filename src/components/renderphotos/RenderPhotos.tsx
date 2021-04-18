@@ -1,8 +1,7 @@
-import React, {useState, Component, useRef, useEffect, } from 'react';
-import { isTemplateExpression } from 'typescript';
-import Modal from '../modal/Modal';
-import '../modal/Modal.css';
-import "./renderPhotos.css";
+import React, {useState, useRef, useEffect, } from 'react';
+import Modal from 'components/modal/Modal';
+import 'components/modal/Modal.css';
+import 'components/renderphotos/renderPhotos.css';
 
 
 const RenderPhotos = (props: any) => {

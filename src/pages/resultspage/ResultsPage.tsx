@@ -1,18 +1,18 @@
 import React, {useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import Unsplash, { toJson } from 'unsplash-js';
-import env from '../../env.json'
-import "./ResultsPage.css";
-import RenderListAutocomplete from '../../components/autocomplete/RenderListAutocomplete';
-import RenderPhotos from '../../components/renderphotos/RenderPhotos';
-import '../../components/modal/Modal.css';
+import "pages/resultspage/ResultsPage.css";
+import RenderListAutocomplete from 'components/autocomplete/RenderListAutocomplete';
+import RenderPhotos from 'components/renderphotos/RenderPhotos';
+import 'components/modal/Modal.css';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { FaSearch } from 'react-icons/fa';
+import {unsplash} from 'components/api//unsplashAPI'
 
 
 export default function ResultsPage() { 
-    const unsplash = new Unsplash({ accessKey: env.API_KEY });
+
     const { recivedPhoto } : any = useParams();
     const recivedPhotoShort = recivedPhoto.slice(1, recivedPhoto.length);
 
