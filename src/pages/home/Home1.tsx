@@ -38,9 +38,7 @@ export default function Home() {
         setPhoto(photo);
     }
 
-    const toggleAutoCompleeteFields = (toggleStatus: any) => {
-            settoggleAutocomplete(toggleStatus);
-    }
+    
 
 
     if (redirectTo === true) {
@@ -85,7 +83,7 @@ export default function Home() {
                     <div className="toogleAutocompleteH">
                         <ShowAutoCompleete 
                             resultCollection={resultCollection}
-                            toggleAutoCompleeteFields={toggleAutoCompleeteFields}
+                            settoggleAutocomplete={settoggleAutocomplete}
                             toggleAutocomplete={toggleAutocomplete}
                             updateSearchPhoto={updateSearchPhoto}
                             

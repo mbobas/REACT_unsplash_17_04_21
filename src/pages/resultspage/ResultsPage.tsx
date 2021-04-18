@@ -67,10 +67,10 @@ export default function ResultsPage() {
         });
     }
 
-    const toggleAutoCompleeteFields = (toggleStatus: any) => {
-            settoggleAutocomplete(toggleStatus);
-            console.log("Toggle" + toggleStatus);
-    }
+    // const toggleAutoCompleeteFields = (toggleAutocomplete: any) => {
+    //         settoggleAutocomplete(toggleAutocomplete);
+    //         console.log("Toggle" + toggleAutocomplete);
+    // }
 
 
     useEffect(() => {
@@ -115,7 +115,8 @@ export default function ResultsPage() {
                     <div className="toogleAutocompleteR">
                         <ShowAutoCompleete 
                             resultCollection={resultCollection}
-                            toggleAutoCompleeteFields={toggleAutoCompleeteFields}
+                            //toggleAutoCompleeteFields={toggleAutoCompleeteFields}
+                            settoggleAutocomplete={settoggleAutocomplete}
                             toggleAutocomplete={toggleAutocomplete}
                             updateSearchPhoto={updateSearchPhoto}
                             

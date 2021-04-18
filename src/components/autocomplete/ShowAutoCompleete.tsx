@@ -1,23 +1,38 @@
 import React from "react";
 import RenderListAutocomplete from "./RenderListAutocomplete";
 
-interface Props {
+interface ShowAutoCompleeteProps {
     resultCollection: any, 
-    toggleAutoCompleeteFields: any, 
+    //toggleAutoCompleeteFields: any, 
+    settoggleAutocomplete: any,
     toggleAutocomplete: any, 
     updateSearchPhoto: any,
   }
+
+//   const toggleAutoCompleeteFields = (toggleAutocomplete: any) => {
+//     settoggleAutocomplete(toggleAutocomplete);
+// }
+
  
-  export const ShowAutoCompleete: React.FC<Props> = ({resultCollection, toggleAutoCompleeteFields, toggleAutocomplete, updateSearchPhoto}) => {
+  export const ShowAutoCompleete: React.FC<ShowAutoCompleeteProps> = ({resultCollection, settoggleAutocomplete, toggleAutocomplete, updateSearchPhoto}) => {
+    
+    // const toggleAutoCompleeteFields = (toggleAutocomplete: any, settoggleAutocomplete: any) => {
+    //     settoggleAutocomplete(toggleAutocomplete);
+    // }
+    const toggleAutoCompleeteFields = (toggleAutocomplete: any) => {
+        settoggleAutocomplete(toggleAutocomplete);
+    }
+
     if (toggleAutocomplete) {  
         return (
                 <RenderListAutocomplete 
                 resultCollection={resultCollection} 
                 toggleAutoCompleeteFields={toggleAutoCompleeteFields}
+                //settoggleAutocomplete={settoggleAutocomplete}
                 updateSearchPhoto={updateSearchPhoto}
             />
             )
-        } else if (toggleAutocomplete == false) {
+        } else if (toggleAutocomplete === false) {
             return (<span></span>);
         } else {
             return (<span>No matches! 👎</span>)

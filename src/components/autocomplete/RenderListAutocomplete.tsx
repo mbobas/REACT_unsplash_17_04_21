@@ -6,6 +6,7 @@ interface RenderListAutocompleteProps {
     resultCollection: any,
     //updatePhotoCollections: any,
     //handleSearchCollections: any,
+    //settoggleAutocomplete: any,
     toggleAutoCompleeteFields: any,
     updateSearchPhoto: any
 }
