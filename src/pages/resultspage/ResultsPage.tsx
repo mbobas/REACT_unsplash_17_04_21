@@ -1,25 +1,27 @@
-import React, {useState, useEffect } from 'react';
+import React, {useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router';
 import Unsplash, { toJson } from 'unsplash-js';
-import "pages/resultspage/ResultsPage.css";
-import RenderListAutocomplete from 'components/autocomplete/RenderListAutocomplete';
-import RenderPhotos from 'components/renderphotos/RenderPhotos';
-import 'components/modal/Modal.css';
+import env from '../../env.json'
+import "./ResultsPage.css";
+import RenderListAutocomplete from '../../components/autocomplete/RenderListAutocomplete';
+import RenderPhotos from '../../components/renderphotos/RenderPhotos';
+import '../../components/modal/Modal.css';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { FaSearch } from 'react-icons/fa';
-import {unsplash} from 'components/api//unsplashAPI'
 
 
 export default function ResultsPage() { 
-
+    const unsplash = new Unsplash({ accessKey: env.API_KEY });
     const { recivedPhoto } : any = useParams();
     const recivedPhotoShort = recivedPhoto.slice(1, recivedPhoto.length);
 
     const [photo, setPhoto] = useState("");
+    const [clientId, setClientId] = useState(env.API_KEY);
     const [resultCollection, setResultCollection] = useState([]);
     const [resultPhotos, setResultPhotos] = useState([]);
     const [toggleAutocomplete, settoggleAutocomplete] = useState(false);
+    const [modalTitle, setModalTitle] = useState("");
 
     const handleChange = (event: any ) => {
         setPhoto(event.target.value);
@@ -37,7 +39,7 @@ export default function ResultsPage() {
             });
     }
     const handleSearchCollections = (event:any) => {
-        unsplash.search.collections(event.target.value, 1, 5)
+        unsplash.search.collections(photo, 1, 5)
             .then(toJson)
             .then(json => {
                 console.log("handleSearchCollections");
@@ -67,6 +69,16 @@ export default function ResultsPage() {
         }
     }
 
+    const updatePhotoCollections = (photo: any) => {
+        setPhoto(photo);
+        unsplash.search.collections(photo, 1, 20)
+            .then(toJson)
+            .then(json => {
+                console.log("updateCollections");
+                console.log(json.results);
+                setResultCollection(json.results)
+            });
+    }
 
     const updateSearchPhoto = (photo: any) => {
         setPhoto(photo);
@@ -79,6 +91,11 @@ export default function ResultsPage() {
         });
     }
 
+    const updateModalParam = (title: any) => {
+        setModalTitle(title);
+        console.log('Modal title: ' + modalTitle)
+        console.log('Modal title: ' + modalTitle)
+    }
 
     const toggleAutoCompleeteFields = (toggleStatus: any) => {
             settoggleAutocomplete(toggleStatus);
@@ -90,6 +107,8 @@ export default function ResultsPage() {
             return (
                     <RenderListAutocomplete 
                     resultCollection={resultCollection} 
+                    //updatePhotoCollections={updatePhotoCollections} 
+                    //handleSearchCollections={handleSearchCollections}
                     toggleAutoCompleeteFields={toggleAutoCompleeteFields}
                     updateSearchPhoto={updateSearchPhoto}
                 />
@@ -120,7 +139,7 @@ export default function ResultsPage() {
         <div className="AppR">
             <div className="top-of-appR">
                 <Link to="/"><div className="home-linkR">Home</div></Link>
-                <a className="about-linkR" target='_blank' href="https://github.com/mbobas" rel="noreferrer">About</a>
+                <a className="about-linkR" target='_blank' href="https://github.com/mbobas">About</a>
 
                 <div className="logo-and-searchbar-containerR">
                     <div className="search-bar-with-button-containerR">
@@ -156,6 +175,3 @@ export default function ResultsPage() {
     );
     
 }
-
-
-
