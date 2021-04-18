@@ -1,6 +1,5 @@
 import React, {useState } from 'react';
 import Unsplash, { toJson } from 'unsplash-js';
-import env from '../../env.json'
 import "./Home.css";
 import RenderListAutocomplete from '../../components/autocomplete/RenderListAutocomplete';
 import { Link, Redirect} from 'react-router-dom';
@@ -13,65 +12,27 @@ export default function Home() {
     const unsplash = new Unsplash({ accessKey: "sDI3L3I2mgA91a4deHN4BevefU63v8_yMhgYmrtHy6k"});
     //states of 
     const [photo, setPhoto] = useState("sunset");
-    const [clientId, setClientId] = useState("sDI3L3I2mgA91a4deHN4BevefU63v8_yMhgYmrtHy6k");
     const [resultCollection, setResultCollection] = useState([]);
     const [resultPhotos, setResultPhotos] = useState([]);
     const [toggleAutocomplete, settoggleAutocomplete] = useState(false);
-    const [modalTitle, setModalTitle] = useState("");
-    //let [autoCompletematches, setautoCompletematches] = useState([]);
-    let [autoCompletematches, setautoCompletematches] = useState([] as any);
-    let [autoCompletematchesXresults, setautoCompletematchesXresults] = useState([]);
     const [redirectTo, setStateRedirect] = useState(false);
-
-    const handleSearchText = (searchText: string) => {
-        const data = require("word-list-json");
-        console.log("handleSearchText, szukany text " + searchText)
-        //Initializeation of data to autocompleete
-        
-        for (var i=0; i<100; i++) {
-            //console.log(data[i])
-            //setautoCompletematches(data[i]);
-            //setautoCompletematches((prevState: any) => [...prevState, data[i]]);
-            
-        }
-        //console.log("data"+ data)
-
-       //Get autoCompletematches to current text input 
-        let results = data.filter((item: any) => {
-             item.match(searchText)
-             //console.log("item"+ item.match(searchText))
-             
-        })
-        setautoCompletematches(results);
-
-        if (searchText.length === 0 ) {
-            setautoCompletematches([]);
-        }
-        setautoCompletematchesXresults(autoCompletematches.slice(0,5));
-
-        console.log("handleSearchText")
-        console.log(autoCompletematchesXresults);
-     
-
-    };
 
     const handleChange = (event: any ) => {
         
         console.log("handleChange: value" + event.target.value);
         handleSearchCollections(event);
-        handleSearchText(event.target.value);
         setPhoto(event.target.value);
     }
 
-    const handleSearchPhotos = (event:any) => {
-        unsplash.search.photos(event.target.value, 1, 15)
-            .then(toJson)
-            .then(json => {
-                console.log("handleSearchPhotos" + photo);
-                console.log(json);
-                setResultPhotos(json.results)
-            });
-    }
+    // const handleSearchPhotos = (event:any) => {
+    //     unsplash.search.photos(event.target.value, 1, 15)
+    //         .then(toJson)
+    //         .then(json => {
+    //             console.log("handleSearchPhotos" + photo);
+    //             console.log(json);
+    //             setResultPhotos(json.results)
+    //         });
+
     const handleSearchCollections = (event:any) => {
         unsplash.search.collections(event.target.value, 1, 5)
             .then(toJson)
@@ -79,8 +40,20 @@ export default function Home() {
                 console.log("handleSearchCollections");
                 console.log(json.results);
                 setResultCollection(json.results)
+                
             });
     }
+
+    // }
+    // const handleSearchCollections = (event:any) => {
+    //     unsplash.search.collections(event.target.value, 1, 5)
+    //         .then(toJson)
+    //         .then(json => {
+    //             console.log("handleSearchCollections");
+    //             console.log(json.results);
+    //             setResultCollection(json.results)
+    //         });
+    // }
 
     const redirect = (event: any) => {
         setStateRedirect(true);
@@ -161,7 +134,7 @@ export default function Home() {
             <div className="top-of-appH">
 
                 <Link to="/"><div className="home-linkH">Home</div></Link>
-                <a className="about-linkH" target='_blank' href="https://github.com/mbobas">About</a>
+                <a className="about-linkH" target='_blank' href="https://github.com/mbobas" rel="noreferrer">About</a>
 
                 <div className="logo-and-searchbar-containerH">
                     <span className="logo-unsplash-bigH">Usnplash Photo Search in React</span>
@@ -170,7 +143,7 @@ export default function Home() {
                     <div className="search-bar-with-button-containerH">
                         <Link to={'/:'+photo}>
                             <div className="searchButtonH"
-                                onClick={handleSearchCollections && handleSearchPhotos}>
+                                onClick={handleSearchCollections}>
                             <IconContext.Provider value={{ style: {fontSize: '30px', color: "rgb(255,255,255,0.7)"}}}>
                                 <FaSearch />
                             </IconContext.Provider>

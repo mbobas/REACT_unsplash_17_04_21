@@ -1,6 +1,5 @@
-import React, {useState, Component} from 'react';
+import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import { BooleanLiteral } from 'typescript';
 import "./RenderListAutocomplete.css";
 
 interface RenderListAutocompleteProps {

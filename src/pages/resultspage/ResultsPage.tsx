@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef } from 'react';
+import React, {useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import Unsplash, { toJson } from 'unsplash-js';
 import env from '../../env.json'
@@ -17,11 +17,9 @@ export default function ResultsPage() {
     const recivedPhotoShort = recivedPhoto.slice(1, recivedPhoto.length);
 
     const [photo, setPhoto] = useState("");
-    const [clientId, setClientId] = useState(env.API_KEY);
     const [resultCollection, setResultCollection] = useState([]);
     const [resultPhotos, setResultPhotos] = useState([]);
     const [toggleAutocomplete, settoggleAutocomplete] = useState(false);
-    const [modalTitle, setModalTitle] = useState("");
 
     const handleChange = (event: any ) => {
         setPhoto(event.target.value);
@@ -91,11 +89,11 @@ export default function ResultsPage() {
         });
     }
 
-    const updateModalParam = (title: any) => {
-        setModalTitle(title);
-        console.log('Modal title: ' + modalTitle)
-        console.log('Modal title: ' + modalTitle)
-    }
+    // const updateModalParam = (title: any) => {
+    //     setModalTitle(title);
+    //     console.log('Modal title: ' + modalTitle)
+    //     console.log('Modal title: ' + modalTitle)
+    // }
 
     const toggleAutoCompleeteFields = (toggleStatus: any) => {
             settoggleAutocomplete(toggleStatus);
@@ -139,7 +137,7 @@ export default function ResultsPage() {
         <div className="AppR">
             <div className="top-of-appR">
                 <Link to="/"><div className="home-linkR">Home</div></Link>
-                <a className="about-linkR" target='_blank' href="https://github.com/mbobas">About</a>
+                <a className="about-linkR" target='_blank' href="https://github.com/mbobas" rel="noreferrer">About</a>
 
                 <div className="logo-and-searchbar-containerR">
                     <div className="search-bar-with-button-containerR">
