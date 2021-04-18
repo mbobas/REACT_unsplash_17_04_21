@@ -1,0 +1,35 @@
+.field-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+
+}
+
+.title {
+    font-size: 10px;
+    color: black;
+}
+
+.one-result-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    flex: 1;
+}
+.logo-unsplash-h4 {
+    color: black;
+    margin: 10px;
+}
+.show-images-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: -20vh;
+    
+}
+.show-images-container>* {
+flex: 0 0 33.33%;
+} 
