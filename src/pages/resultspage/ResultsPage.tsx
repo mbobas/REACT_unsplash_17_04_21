@@ -67,16 +67,6 @@ export default function ResultsPage() {
         }
     }
 
-    const updatePhotoCollections = (photo: any) => {
-        setPhoto(photo);
-        unsplash.search.collections(photo, 1, 20)
-            .then(toJson)
-            .then(json => {
-                console.log("updateCollections");
-                console.log(json.results);
-                setResultCollection(json.results)
-            });
-    }
 
     const updateSearchPhoto = (photo: any) => {
         setPhoto(photo);
@@ -89,11 +79,6 @@ export default function ResultsPage() {
         });
     }
 
-    // const updateModalParam = (title: any) => {
-    //     setModalTitle(title);
-    //     console.log('Modal title: ' + modalTitle)
-    //     console.log('Modal title: ' + modalTitle)
-    // }
 
     const toggleAutoCompleeteFields = (toggleStatus: any) => {
             settoggleAutocomplete(toggleStatus);
@@ -105,8 +90,6 @@ export default function ResultsPage() {
             return (
                     <RenderListAutocomplete 
                     resultCollection={resultCollection} 
-                    //updatePhotoCollections={updatePhotoCollections} 
-                    //handleSearchCollections={handleSearchCollections}
                     toggleAutoCompleeteFields={toggleAutoCompleeteFields}
                     updateSearchPhoto={updateSearchPhoto}
                 />

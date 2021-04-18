@@ -19,15 +19,6 @@ export default function Home() {
         handleSearchCollections(event);
         setPhoto(event.target.value);
     }
-
-    // const handleSearchPhotos = (event:any) => {
-    //     unsplash.search.photos(event.target.value, 1, 15)
-    //         .then(toJson)
-    //         .then(json => {
-    //             console.log("handleSearchPhotos" + photo);
-    //             console.log(json);
-    //             setResultPhotos(json.results)
-    //         });
     
     const handleSearchCollections = (event:any) => {
         unsplash.search.collections(event.target.value, 1, 5)
@@ -43,15 +34,6 @@ export default function Home() {
         setStateRedirect(true);
 
     }
-
-    // const onKeyDown = (event:any ) => {
-    //     if (event.key === 'Enter') {
-    //         console.log('OnKeyDown: ' + photo);
-    //         updateSearchPhoto(photo);
-    //         settoggleAutocomplete(false);
-    //         redirect(photo);
-    //       }
-    // }
    
     const autoCompleete = (event: any) => {
         if (event.target.value.length === 3){
@@ -67,31 +49,12 @@ export default function Home() {
         }
     }
 
-    const updatePhotoCollections = (photo: any) => {
-        setPhoto(photo);
-        unsplash.search.collections(photo, 1, 20)
-            .then(toJson)
-            .then(json => {
-                console.log("updateCollections");
-                console.log(json.results);
-                setResultCollection(json.results)
-            });
-    }
-
     const updateSearchPhoto = (photo: any) => {
         setPhoto(photo);
-        // unsplash.search.photos(photo, 1, 15)
-        // .then(toJson)
-        // .then(json => {
-        //     console.log("updateSearchPhoto");
-        //     console.log(json);
-        //     //setResultPhotos(json.results)
-        // });
     }
 
     const toggleAutoCompleeteFields = (toggleStatus: any) => {
             settoggleAutocomplete(toggleStatus);
-            console.log("Toggle" + toggleStatus);
     }
 
     function ShowAutoCompleete(props: any) {
