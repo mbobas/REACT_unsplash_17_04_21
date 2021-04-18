@@ -9,6 +9,7 @@ import '../../components/modal/Modal.css';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { FaSearch } from 'react-icons/fa';
+import { autoCompleete } from 'components/autocomplete/autocompleeteFunctions';
 
 
 export default function ResultsPage() { 
@@ -55,18 +56,18 @@ export default function ResultsPage() {
             settoggleAutocomplete(false);
           }
     }
-    const autoCompleete = (event: any) => {
-        if (event.target.value.length === 3){
-            settoggleAutocomplete(true);
-            console.log(toggleAutocomplete);
-        }
-        if (event.target.value.length > 3) {
-        }
-        if (event.target.value.length < 3){
-            settoggleAutocomplete(false);
-            console.log(toggleAutocomplete);
-        }
-    }
+    // const autoCompleete = (event: any) => {
+    //     if (event.target.value.length === 3){
+    //         settoggleAutocomplete(true);
+    //         console.log(toggleAutocomplete);
+    //     }
+    //     if (event.target.value.length > 3) {
+    //     }
+    //     if (event.target.value.length < 3){
+    //         settoggleAutocomplete(false);
+    //         console.log(toggleAutocomplete);
+    //     }
+    // }
 
     const updateSearchPhoto = (photo: any) => {
         setPhoto(photo);
@@ -79,12 +80,6 @@ export default function ResultsPage() {
         });
     }
 
-    const updateModalParam = (title: any) => {
-        setModalTitle(title);
-        console.log('Modal title: ' + modalTitle)
-        console.log('Modal title: ' + modalTitle)
-    }
-
     const toggleAutoCompleeteFields = (toggleStatus: any) => {
             settoggleAutocomplete(toggleStatus);
             console.log("Toggle" + toggleStatus);
@@ -95,7 +90,6 @@ export default function ResultsPage() {
             return (
                     <RenderListAutocomplete 
                     resultCollection={resultCollection} 
-                    
                     toggleAutoCompleeteFields={toggleAutoCompleeteFields}
                     updateSearchPhoto={updateSearchPhoto}
                 />
@@ -139,7 +133,7 @@ export default function ResultsPage() {
                             </div>
                         </Link>
                         <input className="search-barR"
-                            onChangeCapture={autoCompleete}
+                            onChangeCapture={(e) => autoCompleete(e, settoggleAutocomplete, toggleAutocomplete)}
                             onChange={handleChange} 
                             onKeyDown={onKeyDown}
                             type="text" name="photo" 
