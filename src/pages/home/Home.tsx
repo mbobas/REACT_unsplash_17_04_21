@@ -104,8 +104,8 @@ export default function Home() {
                     <RenderListAutocomplete 
                 
                     resultCollection={props.resultCollection} 
-                    updatePhotoCollections={updatePhotoCollections} 
-                    handleSearchCollections={handleSearchCollections}
+                    //updatePhotoCollections={updatePhotoCollections} 
+                    //handleSearchCollections={handleSearchCollections}
                     toggleAutoCompleeteFields={toggleAutoCompleeteFields}
                     updateSearchPhoto={updateSearchPhoto}
                 />

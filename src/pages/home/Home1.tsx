@@ -11,12 +11,11 @@ import {unsplash} from 'components/api//unsplashAPI'
 export default function Home() { 
     const [photo, setPhoto] = useState("sunset");
     const [resultCollection, setResultCollection] = useState([]);
-    const [resultPhotos, setResultPhotos] = useState([]);
+    //const [resultPhotos, setResultPhotos] = useState([]);
     const [toggleAutocomplete, settoggleAutocomplete] = useState(false);
     const [redirectTo, setStateRedirect] = useState(false);
 
     const handleChange = (event: any ) => {
-        //console.log("handleChange: value" + event.target.value);
         handleSearchCollections(event);
         setPhoto(event.target.value);
     }
@@ -29,8 +28,6 @@ export default function Home() {
     //             console.log(json);
     //             setResultPhotos(json.results)
     //         });
-
-
     
     const handleSearchCollections = (event:any) => {
         unsplash.search.collections(event.target.value, 1, 5)
@@ -44,17 +41,17 @@ export default function Home() {
 
     const redirect = (event: any) => {
         setStateRedirect(true);
-        //return <Redirect to={'/:'+event.target.value.slice(6,event.target.value.length-1)} />
+
     }
 
-    const onKeyDown = (event:any ) => {
-        if (event.key === 'Enter') {
-            console.log('OnKeyDown: ' + photo);
-            updateSearchPhoto(photo);
-            settoggleAutocomplete(false);
-            redirect(photo);
-          }
-    }
+    // const onKeyDown = (event:any ) => {
+    //     if (event.key === 'Enter') {
+    //         console.log('OnKeyDown: ' + photo);
+    //         updateSearchPhoto(photo);
+    //         settoggleAutocomplete(false);
+    //         redirect(photo);
+    //       }
+    // }
    
     const autoCompleete = (event: any) => {
         if (event.target.value.length === 3){
@@ -83,13 +80,13 @@ export default function Home() {
 
     const updateSearchPhoto = (photo: any) => {
         setPhoto(photo);
-        unsplash.search.photos(photo, 1, 15)
-        .then(toJson)
-        .then(json => {
-            console.log("updateSearchPhoto");
-            console.log(json);
-            setResultPhotos(json.results)
-        });
+        // unsplash.search.photos(photo, 1, 15)
+        // .then(toJson)
+        // .then(json => {
+        //     console.log("updateSearchPhoto");
+        //     console.log(json);
+        //     //setResultPhotos(json.results)
+        // });
     }
 
     const toggleAutoCompleeteFields = (toggleStatus: any) => {
@@ -102,8 +99,6 @@ export default function Home() {
             return (
                     <RenderListAutocomplete 
                     resultCollection={props.resultCollection} 
-                    updatePhotoCollections={updatePhotoCollections} 
-                    handleSearchCollections={handleSearchCollections}
                     toggleAutoCompleeteFields={toggleAutoCompleeteFields}
                     updateSearchPhoto={updateSearchPhoto}
                 />
@@ -145,7 +140,7 @@ export default function Home() {
                             value={photo}
                             onChangeCapture={autoCompleete}
                             onChange={handleChange} 
-                            onKeyDown={onKeyDown}
+                            //onKeyDown={onKeyDown}
                             type="text" name="photo" 
                             placeholder="Search for high resolution photos" 
                         />

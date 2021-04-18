@@ -4,8 +4,8 @@ import 'components/autocomplete/RenderListAutocomplete.css';
 
 interface RenderListAutocompleteProps {
     resultCollection: any,
-    updatePhotoCollections: any,
-    handleSearchCollections: any,
+    //updatePhotoCollections: any,
+    //handleSearchCollections: any,
     toggleAutoCompleeteFields: any,
     updateSearchPhoto: any
 }

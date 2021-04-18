@@ -105,8 +105,8 @@ export default function ResultsPage() {
             return (
                     <RenderListAutocomplete 
                     resultCollection={resultCollection} 
-                    updatePhotoCollections={updatePhotoCollections} 
-                    handleSearchCollections={handleSearchCollections}
+                    //updatePhotoCollections={updatePhotoCollections} 
+                    //handleSearchCollections={handleSearchCollections}
                     toggleAutoCompleeteFields={toggleAutoCompleeteFields}
                     updateSearchPhoto={updateSearchPhoto}
                 />
