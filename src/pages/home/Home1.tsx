@@ -6,6 +6,7 @@ import { Link, Redirect} from 'react-router-dom';
 import {IconContext} from "react-icons";
 import {FaSearch} from "react-icons/fa"
 import {unsplash} from 'components/api//unsplashAPI'
+import { autoCompleete } from 'components/autocomplete/autocompleeteFunctions';
 
 
 export default function Home() { 
@@ -34,20 +35,7 @@ export default function Home() {
         setStateRedirect(true);
 
     }
-   
-    const autoCompleete = (event: any) => {
-        if (event.target.value.length === 3){
-            settoggleAutocomplete(true);
-            console.log(toggleAutocomplete);
-        }
-        if (event.target.value.length > 3) {
-        console.log(event.target.value.length + "StartAutocomplete")
-        }
-        if (event.target.value.length < 3){
-            settoggleAutocomplete(false);
-            console.log(toggleAutocomplete);
-        }
-    }
+    
 
     const updateSearchPhoto = (photo: any) => {
         setPhoto(photo);
@@ -66,10 +54,14 @@ export default function Home() {
                     updateSearchPhoto={updateSearchPhoto}
                 />
                 )
-        } else {
-            return (<span></span>);
+            } else if (toggleAutocomplete == false) {
+                return (<span></span>);
+            } else {
+                return (<span>No matches! 👎</span>)
+            }
         }
-        }
+
+
     if (redirectTo === true) {
     return <Redirect to={'/:'+photo} />
            
@@ -101,7 +93,7 @@ export default function Home() {
                             >
                         <input className="search-barH"
                             value={photo}
-                            onChangeCapture={autoCompleete}
+                            onChangeCapture={(e) => autoCompleete(e, settoggleAutocomplete, toggleAutocomplete)}
                             onChange={handleChange} 
                             //onKeyDown={onKeyDown}
                             type="text" name="photo" 

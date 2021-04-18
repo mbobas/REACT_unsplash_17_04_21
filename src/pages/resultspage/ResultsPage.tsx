@@ -61,23 +61,11 @@ export default function ResultsPage() {
             console.log(toggleAutocomplete);
         }
         if (event.target.value.length > 3) {
-        console.log(event.target.value.length + "StartAutocomplete")
         }
         if (event.target.value.length < 3){
             settoggleAutocomplete(false);
             console.log(toggleAutocomplete);
         }
-    }
-
-    const updatePhotoCollections = (photo: any) => {
-        setPhoto(photo);
-        unsplash.search.collections(photo, 1, 20)
-            .then(toJson)
-            .then(json => {
-                console.log("updateCollections");
-                console.log(json.results);
-                setResultCollection(json.results)
-            });
     }
 
     const updateSearchPhoto = (photo: any) => {
@@ -107,8 +95,7 @@ export default function ResultsPage() {
             return (
                     <RenderListAutocomplete 
                     resultCollection={resultCollection} 
-                    //updatePhotoCollections={updatePhotoCollections} 
-                    //handleSearchCollections={handleSearchCollections}
+                    
                     toggleAutoCompleeteFields={toggleAutoCompleeteFields}
                     updateSearchPhoto={updateSearchPhoto}
                 />
