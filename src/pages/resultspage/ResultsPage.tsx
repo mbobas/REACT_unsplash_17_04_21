@@ -64,7 +64,7 @@ export default function ResultsPage() {
         }, [recivedPhotoShort]);
    
     return (
-        <div className="AppR">
+        <>
             <div className="top-of-appR">
                 <Link to="/"><div className="home-linkR">Home</div></Link>
                 <a className="about-linkR" target='_blank' href="https://github.com/mbobas">About</a>
@@ -115,6 +115,6 @@ export default function ResultsPage() {
             <RenderPhotos  
                 resultPhotos={resultPhotos} 
             />
-        </div>
+        </>
     );
 }
