@@ -130,9 +130,3 @@
   flex: 1;
 }
 
-@media only screen and (max-width: 361px) {
-  .top-of-appH {
-    width: 30%;
-  }
-}
-

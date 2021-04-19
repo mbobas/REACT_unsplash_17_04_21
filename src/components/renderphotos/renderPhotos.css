@@ -3,9 +3,9 @@
     flex-direction: column;
 }
 
-.item {
+/* .item {
 
-}
+} */
 
 .title {
     font-size: 0.5rem;
@@ -27,7 +27,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: -20vh;
+    /* margin-top: -10rem; */
     
 }
 .show-images-container>* {
