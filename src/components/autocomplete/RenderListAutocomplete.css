@@ -9,8 +9,10 @@
     font-weight: 700;
     margin-left: 1rem;
     margin-top: 0.65rem;
+    text-decoration: none;
 } 
 
 .button:hover {
     background-color: rgb(0,0,0,0.15);
+  
 } 

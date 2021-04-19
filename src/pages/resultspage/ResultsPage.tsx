@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router';
 import { toJson } from 'unsplash-js';
-import "./ResultsPage.css";
-import RenderPhotos from '../../components/renderphotos/RenderPhotos';
-import '../../components/modal/Modal.css';
+import "pages/resultspage/ResultsPage.css";
+import RenderPhotos from 'components/renderphotos/RenderPhotos';
+import 'components/modal/Modal.css';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { FaSearch } from 'react-icons/fa';
@@ -68,16 +68,7 @@ export default function ResultsPage() {
             <div className="top-of-appR">
                 <Link to="/"><div className="home-linkR">Home</div></Link>
                 <a className="about-linkR" target='_blank' href="https://github.com/mbobas">About</a>
-                
                 <div className="logo-and-searchbar-containerR">
-
-
-
-
-
-
-
-
                     <div className="search-bar-with-button-containerR">
                         <Link to={'/:'+photo}>
                             <div className="searchButtonR"
@@ -87,12 +78,6 @@ export default function ResultsPage() {
                             </IconContext.Provider>
                             </div>
                         </Link>
-
-
-
-
-
-                        
                         <input className="search-barR"
                             onChangeCapture={(e) => autoCompleete(e, settoggleAutocomplete, toggleAutocomplete)}
                             onChange={handleChange} 

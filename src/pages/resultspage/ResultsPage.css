@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: flex-start;
   background-color:white;
-  width: 100vw;
+  width: 90vw;
   max-width:90vw
 }
 .home-linkR {
@@ -22,6 +22,7 @@
   left: 4rem;
   margin: 0.5rem;
   color: rgb(0,0,0,0.5);
+  text-decoration: none;
 }
 
 .logo-and-searchbar-containerR {
@@ -29,19 +30,21 @@
   flex-direction: column;
   margin-top: 3rem;
   margin-bottom: 7rem;
-  width: 40rem;
+  width: 60rem;
   max-width:90vw
 }
 .search-bar-with-button-containerR {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  margin-left: 4rem;
   border: 0.2rem solid rgb(0,0,0,0.2);
   
 }
 
 .text-to-findeR {
   margin-top: 1.5rem;
-  margin-left: -6%;
+  margin-left: 4rem;
   font-weight: 700;
   color: black;
   font-size: 2rem;
